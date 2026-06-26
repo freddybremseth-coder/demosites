@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pindsle Elektro AS – Autorisert elektriker i Sandefjord</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: 'Public Sans', system-ui, sans-serif; color: #475569; background: #fff; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+::selection { background: #fde047; color: #0f172a; }
+a { text-decoration: none; }
+img { display: block; }
+
+/* Top strip */
+.topstrip { background: #0f172a; color: #cbd5e1; font-size: 13px; padding: 8px 0; }
+.topstrip-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; justify-content: space-between; }
+.topstrip-item { display: flex; align-items: center; gap: 7px; }
+.topstrip-item.bold { font-weight: 600; color: #fff; }
+
+/* Nav */
+header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-bottom: 1px solid #eef2f7; }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.logo { display: flex; align-items: center; gap: 11px; }
+.logo-icon { width: 42px; height: 42px; border-radius: 12px; background: #eab308; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px -2px rgba(234,179,8,.5); flex-shrink: 0; }
+.logo-name { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 19px; color: #0f172a; letter-spacing: -.02em; line-height: 1; }
+.logo-sub { font-size: 11px; font-weight: 600; letter-spacing: .16em; color: #94a3b8; margin-top: 3px; }
+nav { display: flex; align-items: center; gap: 30px; }
+nav a { font-weight: 600; font-size: 15px; color: #334155; transition: color .15s; }
+nav a:hover { color: #eab308; }
+.nav-actions { display: flex; align-items: center; gap: 16px; }
+.nav-phone { display: flex; align-items: center; gap: 8px; font-weight: 700; color: #0f172a; font-size: 15px; }
+.btn-primary { background: #eab308; color: #0f172a; font-weight: 700; font-size: 15px; padding: 12px 20px; border-radius: 11px; box-shadow: 0 6px 16px -4px rgba(234,179,8,.55); transition: background .15s; }
+.btn-primary:hover { background: #ca9a04; }
+
+/* Hero */
+.hero { background: linear-gradient(180deg, #f8fafc 0%, #fff 70%); }
+.hero-inner { max-width: 1200px; margin: 0 auto; padding: clamp(48px,7vw,86px) 24px clamp(56px,8vw,96px); display: flex; flex-wrap: wrap; gap: 48px; align-items: center; }
+.hero-text { flex: 1 1 440px; min-width: 300px; }
+.badge { display: inline-flex; align-items: center; gap: 9px; background: #fef9c3; color: #854d0e; font-weight: 700; font-size: 13px; letter-spacing: .06em; padding: 7px 14px; border-radius: 30px; text-transform: uppercase; }
+.badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #eab308; }
+h1 { font-family: 'Sora', sans-serif; font-weight: 800; color: #0f172a; font-size: clamp(38px,5.4vw,62px); line-height: 1.04; letter-spacing: -.025em; margin: 22px 0 0; }
+h1 span { color: #eab308; }
+.hero-lead { font-size: clamp(17px,1.4vw,20px); line-height: 1.6; color: #475569; margin: 22px 0 0; max-width: 520px; }
+.hero-btns { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+.btn-hero { font-weight: 700; font-size: 17px; padding: 16px 28px; border-radius: 13px; display: inline-flex; align-items: center; gap: 10px; transition: background .15s, transform .15s; }
+.btn-hero-main { background: #eab308; color: #0f172a; box-shadow: 0 10px 24px -6px rgba(234,179,8,.55); }
+.btn-hero-main:hover { background: #ca9a04; transform: translateY(-1px); }
+.btn-hero-sec { background: #fff; color: #0f172a; border: 1.5px solid #e2e8f0; }
+.btn-hero-sec:hover { border-color: #0f172a; }
+.hero-trust { display: flex; flex-wrap: wrap; gap: 26px; margin-top: 38px; align-items: center; }
+.stars { display: flex; gap: 2px; color: #eab308; }
+.rating { font-weight: 700; color: #0f172a; }
+.rating-sub { color: #94a3b8; font-size: 14px; }
+.divider-v { height: 22px; width: 1px; background: #e2e8f0; }
+.trust-badge { font-weight: 600; color: #334155; font-size: 15px; }
+.hero-img { flex: 1 1 380px; min-width: 300px; position: relative; }
+.hero-img-wrap { border-radius: 24px; overflow: hidden; box-shadow: 0 30px 60px -20px rgba(15,23,42,.4); }
+.hero-img-wrap img { width: 100%; height: clamp(360px,42vw,520px); object-fit: cover; }
+.hero-card { position: absolute; left: -14px; bottom: 28px; background: #fff; border-radius: 16px; padding: 16px 20px; box-shadow: 0 18px 40px -12px rgba(15,23,42,.3); display: flex; align-items: center; gap: 14px; }
+.hero-card-icon { width: 46px; height: 46px; border-radius: 12px; background: #0f172a; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.hero-card-title { font-family: 'Sora', sans-serif; font-weight: 800; color: #0f172a; font-size: 18px; line-height: 1; }
+.hero-card-sub { font-size: 13px; color: #64748b; margin-top: 4px; }
+
+/* Trust strip */
+.trust-strip { border-top: 1px solid #eef2f7; border-bottom: 1px solid #eef2f7; background: #fff; }
+.trust-strip-inner { max-width: 1200px; margin: 0 auto; padding: 24px; display: flex; flex-wrap: wrap; gap: 14px 32px; align-items: center; justify-content: center; }
+.trust-item { display: flex; align-items: center; gap: 9px; font-weight: 600; color: #334155; }
+.trust-label { font-weight: 700; color: #94a3b8; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+
+/* Sections */
+section { padding: clamp(64px,9vw,110px) 0; }
+.section-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section-label { font-weight: 700; font-size: 13px; letter-spacing: .1em; color: #eab308; text-transform: uppercase; }
+h2 { font-family: 'Sora', sans-serif; font-weight: 800; color: #0f172a; font-size: clamp(30px,4vw,46px); line-height: 1.08; letter-spacing: -.02em; margin: 12px 0 0; }
+.section-lead { font-size: 18px; line-height: 1.6; color: #64748b; margin: 16px 0 0; }
+
+/* Services grid */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px,1fr)); gap: 22px; margin-top: 48px; }
+.service-card { background: #fff; border: 1px solid #eef2f7; border-radius: 18px; padding: 30px; box-shadow: 0 1px 3px rgba(15,23,42,.04); transition: border-color .2s, transform .2s, box-shadow .2s; }
+.service-card:hover { border-color: #eab308; transform: translateY(-4px); box-shadow: 0 18px 36px -16px rgba(15,23,42,.22); }
+.service-icon { width: 54px; height: 54px; border-radius: 14px; background: #fef9c3; display: flex; align-items: center; justify-content: center; }
+.service-card h3 { font-family: 'Sora', sans-serif; font-weight: 700; color: #0f172a; font-size: 21px; margin: 20px 0 0; }
+.service-card p { font-size: 15.5px; line-height: 1.6; color: #64748b; margin: 10px 0 0; }
+
+/* Why us (dark) */
+.why-us { background: #0f172a; color: #e2e8f0; }
+.why-inner { max-width: 1200px; margin: 0 auto; padding: clamp(64px,9vw,110px) 24px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center; }
+.why-img { flex: 1 1 380px; min-width: 300px; border-radius: 22px; overflow: hidden; box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); }
+.why-img img { width: 100%; height: clamp(330px,38vw,460px); object-fit: cover; }
+.why-text { flex: 1 1 420px; min-width: 300px; }
+.why-label { font-weight: 700; font-size: 13px; letter-spacing: .1em; color: #eab308; text-transform: uppercase; }
+.why-text h2 { color: #fff; }
+.why-lead { font-size: 18px; line-height: 1.6; color: #94a3b8; margin: 18px 0 30px; }
+.why-list { display: flex; flex-direction: column; gap: 22px; }
+.why-item { display: flex; gap: 16px; }
+.why-item-icon { width: 44px; height: 44px; border-radius: 11px; background: rgba(234,179,8,.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.why-item h4 { font-family: 'Sora', sans-serif; font-weight: 700; color: #fff; font-size: 18px; margin: 0; }
+.why-item p { font-size: 15px; color: #94a3b8; margin: 4px 0 0; }
+
+/* Pricing */
+.pricing { background: #f8fafc; }
+.pricing-header { text-align: center; max-width: 600px; margin: 0 auto; }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px,1fr)); gap: 24px; margin-top: 48px; max-width: 1000px; margin-left: auto; margin-right: auto; }
+.price-card { background: #fff; border: 1px solid #eef2f7; border-radius: 20px; padding: 34px; box-shadow: 0 1px 3px rgba(15,23,42,.04); }
+.price-card.featured { background: #0f172a; border-radius: 20px; padding: 34px; box-shadow: 0 24px 50px -18px rgba(15,23,42,.5); transform: translateY(-8px); position: relative; }
+.price-badge { position: absolute; top: 18px; right: 18px; background: #eab308; color: #0f172a; font-weight: 700; font-size: 12px; padding: 5px 11px; border-radius: 20px; letter-spacing: .04em; }
+.price-label { font-weight: 700; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; }
+.price-label.light { color: #64748b; }
+.price-label.accent { color: #eab308; }
+.price-amount { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 42px; margin: 14px 0 4px; }
+.price-amount.dark { color: #0f172a; }
+.price-amount.light { color: #fff; }
+.price-unit { font-size: 18px; color: #94a3b8; font-weight: 600; }
+.price-desc { font-size: 15px; line-height: 1.6; margin: 8px 0 24px; }
+.price-desc.dark { color: #64748b; }
+.price-desc.light { color: #94a3b8; }
+.btn-price { display: block; text-align: center; font-weight: 700; padding: 14px; border-radius: 12px; transition: background .15s; }
+.btn-price-dark { background: #0f172a; color: #fff; }
+.btn-price-dark:hover { background: #1e293b; }
+.btn-price-accent { background: #eab308; color: #0f172a; }
+.btn-price-accent:hover { background: #facc15; }
+
+/* Reviews */
+.reviews { background: #fff; }
+.reviews-header { text-align: center; max-width: 600px; margin: 0 auto 48px; }
+.reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 22px; }
+.review-card { background: #f8fafc; border-radius: 18px; padding: 30px; }
+.review-stars { display: flex; gap: 2px; color: #eab308; margin-bottom: 14px; }
+.review-text { font-size: 17px; line-height: 1.6; color: #1e293b; margin: 0 0 20px; }
+.review-name { font-weight: 700; color: #0f172a; }
+.review-loc { font-size: 14px; color: #94a3b8; }
+
+/* CTA band */
+.cta-band { background: #eab308; }
+.cta-inner { max-width: 1000px; margin: 0 auto; padding: clamp(56px,8vw,96px) 24px; text-align: center; }
+.cta-inner h2 { color: #0f172a; margin: 0; }
+.cta-lead { font-size: clamp(17px,1.5vw,20px); line-height: 1.55; color: #713f12; margin: 18px auto 0; max-width: 560px; font-weight: 500; }
+.cta-btns { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 34px; }
+.btn-cta-dark { background: #0f172a; color: #fff; font-weight: 700; font-size: 17px; padding: 16px 30px; border-radius: 13px; display: inline-flex; align-items: center; gap: 10px; transition: background .15s; }
+.btn-cta-dark:hover { background: #1e293b; }
+.btn-cta-ghost { background: rgba(15,23,42,.08); color: #0f172a; font-weight: 700; font-size: 17px; padding: 16px 30px; border-radius: 13px; border: 1.5px solid rgba(15,23,42,.2); display: inline-flex; align-items: center; gap: 10px; transition: background .15s; }
+.btn-cta-ghost:hover { background: rgba(15,23,42,.14); }
+
+/* Footer */
+footer { background: #0f172a; color: #94a3b8; padding: clamp(48px,7vw,72px) 0 32px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 40px; }
+.footer-logo { display: flex; align-items: center; gap: 11px; margin-bottom: 18px; }
+.footer-logo-icon { width: 40px; height: 40px; border-radius: 11px; background: #eab308; display: flex; align-items: center; justify-content: center; }
+.footer-logo-name { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 19px; color: #fff; }
+.footer-desc { font-size: 15px; line-height: 1.6; max-width: 280px; }
+.footer-col h4 { font-weight: 700; color: #fff; font-size: 15px; margin: 0 0 16px; }
+.footer-links { display: flex; flex-direction: column; gap: 11px; font-size: 15px; }
+.footer-links a { color: #94a3b8; transition: color .15s; }
+.footer-links a:hover { color: #eab308; }
+.footer-links span { color: #94a3b8; }
+.footer-accent { color: #eab308; font-weight: 600; margin-top: 6px; display: block; }
+.footer-bottom { max-width: 1200px; margin: 40px auto 0; padding: 24px 24px 0; border-top: 1px solid #1e293b; display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between; font-size: 13.5px; color: #64748b; }
+
+/* ── Chat Widget ── */
+@keyframes cg-pop { from { opacity:0; transform:translateY(12px) scale(.98); } to { opacity:1; transform:translateY(0) scale(1); } }
+@keyframes cg-blink { 0%,60%,100% { opacity:.25; } 30% { opacity:1; } }
+@keyframes cg-pulse { 0% { box-shadow:0 0 0 0 rgba(0,0,0,.18); } 70% { box-shadow:0 0 0 14px rgba(0,0,0,0); } 100% { box-shadow:0 0 0 0 rgba(0,0,0,0); } }
+#cg-widget { position: fixed; right: 22px; bottom: 22px; z-index: 99999; font-family: 'Public Sans', system-ui, sans-serif; }
+#cg-panel { width: min(384px, calc(100vw - 32px)); height: min(620px, calc(100vh - 120px)); background: #fff; border-radius: 20px; box-shadow: 0 24px 60px -12px rgba(15,23,42,.4), 0 0 0 1px rgba(15,23,42,.05); display: flex; flex-direction: column; overflow: hidden; animation: cg-pop .28s cubic-bezier(.16,1,.3,1); }
+#cg-panel.hidden { display: none; }
+.cg-header { background: #0f172a; color: #fff; padding: 16px 18px; display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.cg-header-icon { width: 42px; height: 42px; border-radius: 12px; background: rgba(255,255,255,.14); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.cg-header-name { font-weight: 700; font-size: 15px; line-height: 1.2; }
+.cg-header-status { font-size: 12px; opacity: .82; display: flex; align-items: center; gap: 6px; margin-top: 2px; }
+.cg-online { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; display: inline-block; }
+.cg-header-flex { flex: 1; min-width: 0; }
+.cg-close { background: rgba(255,255,255,.14); border: none; color: #fff; width: 32px; height: 32px; border-radius: 9px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.cg-messages { flex: 1; overflow-y: auto; padding: 18px; background: #fbfcfd; }
+.cg-messages::-webkit-scrollbar { width: 7px; }
+.cg-messages::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+.cg-msg { display: flex; margin-bottom: 11px; }
+.cg-msg.user { justify-content: flex-end; }
+.cg-msg.bot { justify-content: flex-start; }
+.cg-bubble { max-width: 82%; padding: 11px 14px; font-size: 14px; line-height: 1.5; white-space: pre-wrap; word-break: break-word; }
+.cg-msg.user .cg-bubble { border-radius: 15px 15px 5px 15px; background: #0f172a; color: #fff; }
+.cg-msg.bot .cg-bubble { border-radius: 15px 15px 15px 5px; background: #f1f5f9; color: #1e293b; box-shadow: 0 1px 2px rgba(15,23,42,.04); }
+.cg-dot { width: 7px; height: 7px; border-radius: 50%; background: #94a3b8; display: inline-block; animation: cg-blink 1.3s infinite; }
+.cg-typing { display: flex; padding: 13px 15px; border-radius: 14px 14px 14px 4px; background: #f1f5f9; gap: 5px; align-items: center; }
+.cg-footer { padding: 13px 14px; border-top: 1px solid #eef1f5; background: #fff; flex-shrink: 0; }
+.cg-input-row { display: flex; gap: 9px; align-items: flex-end; }
+.cg-input { flex: 1; border: 1.5px solid #e2e8f0; border-radius: 13px; padding: 12px 14px; font-size: 14px; font-family: inherit; outline: none; color: #0f172a; background: #f8fafc; resize: none; }
+.cg-input:focus { border-color: #eab308; }
+.cg-send { background: #eab308; color: #0f172a; border: none; width: 46px; height: 46px; border-radius: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background .15s; }
+.cg-send:hover { background: #ca9a04; }
+.cg-powered { text-align: center; font-size: 11px; color: #94a3b8; margin-top: 9px; letter-spacing: .02em; }
+.cg-powered span { font-weight: 600; color: #64748b; }
+#cg-launcher { background: #eab308; color: #0f172a; border: none; height: 58px; padding: 0 22px 0 18px; border-radius: 30px; cursor: pointer; display: flex; align-items: center; gap: 11px; font-family: inherit; font-weight: 700; font-size: 15px; box-shadow: 0 12px 28px -6px rgba(15,23,42,.45); animation: cg-pulse 2.6s infinite; }
+#cg-launcher.hidden { display: none; }
+</style>
+</head>
+<body>
+
+<!-- Top strip -->
+<div class="topstrip">
+  <div class="topstrip-inner">
+    <div class="topstrip-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+      Pindsleveien 14, 3221 Sandefjord
+    </div>
+    <div style="display:flex; align-items:center; gap:22px;">
+      <span class="topstrip-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Man–fre 07–16</span>
+      <span class="topstrip-item bold"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg>Døgnvakt 902 00 900</span>
+    </div>
+  </div>
+</div>
+
+<!-- Nav -->
+<header>
+  <div class="nav-inner">
+    <a href="#top" class="logo">
+      <div class="logo-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="#0f172a"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div>
+      <div><div class="logo-name">Pindsle Elektro</div><div class="logo-sub">AUT. ELEKTRIKER · SANDEFJORD</div></div>
+    </a>
+    <nav>
+      <a href="#tjenester">Tjenester</a>
+      <a href="#hvorfor">Hvorfor oss</a>
+      <a href="#priser">Priser</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="tel:+4733123456" class="nav-phone"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>33 12 34 56</a>
+      <a href="#kontakt" class="btn-primary">Få pristilbud</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section id="top" class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="badge"><span class="badge-dot"></span>Elektriker på Pindsle</div>
+      <h1>Din lokale fagmann<br>i <span>Sandefjord</span></h1>
+      <p class="hero-lead">Fra elbil-lader og sikringsskap til service på kort varsel. Vi gjør jobben ryddig, presist og til en fast pris du kjenner på forhånd.</p>
+      <div class="hero-btns">
+        <a href="#kontakt" class="btn-hero btn-hero-main">Få uforpliktende tilbud <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="tel:+4733123456" class="btn-hero btn-hero-sec"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>Ring 33 12 34 56</a>
+      </div>
+      <div class="hero-trust">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <span class="rating">4.9</span><span class="rating-sub">· 230+ oppdrag</span>
+        </div>
+        <div class="divider-v"></div>
+        <span class="trust-badge">Godkjent av DSB &amp; Mesterregisteret</span>
+      </div>
+    </div>
+    <div class="hero-img">
+      <div class="hero-img-wrap">
+        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1100&q=80" alt="Elektriker i arbeid">
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <div><div class="hero-card-title">5 års garanti</div><div class="hero-card-sub">på alt vårt arbeid</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust strip -->
+<div class="trust-strip">
+  <div class="trust-strip-inner">
+    <span class="trust-label">Trygt &amp; godkjent</span>
+    <span class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Mesterbedrift</span>
+    <span class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>DSB-godkjent</span>
+    <span class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Sentral godkjenning</span>
+    <span class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Ansvarsforsikret</span>
+  </div>
+</div>
+
+<!-- Services -->
+<section id="tjenester">
+  <div class="section-inner">
+    <div class="section-label">Tjenester</div>
+    <h2>Hva vi hjelper deg med</h2>
+    <p class="section-lead">Alt innen elektro for hjem og næring i Sandefjord-området – utført av lokale fagfolk.</p>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="#a16207" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V9a2 2 0 0 1 2-2h2V3h6v4h2a2 2 0 0 1 2 2v12"/><path d="M3 21h18"/><path d="M12 11v4"/></svg></div><h3>Elbil-lader</h3><p>Montering av ladeboks hjemme og i borettslag. Vi tar oss av befaring, montering og dokumentasjon.</p></div>
+      <div class="service-card"><div class="service-icon"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="#a16207" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h4"/></svg></div><h3>Sikringsskap</h3><p>Bytte og oppgradering av gamle skap til moderne standard med jordfeilbrytere.</p></div>
+      <div class="service-card"><div class="service-icon"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="#a16207" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div><h3>Smarthus</h3><p>Styr lys, varme og strøm fra mobilen. Vi setter opp et komplett, brukervennlig system.</p></div>
+      <div class="service-card"><div class="service-icon"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="#a16207" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg></div><h3>Belysning</h3><p>Innelys, utelys og LED-spotter montert proft – ute og inne, hjemme og på hytta.</p></div>
+      <div class="service-card"><div class="service-icon"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="#a16207" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2-2 2.5-2.5Z"/></svg></div><h3>Service &amp; feilsøking</h3><p>Røket sikring eller strømbrudd? Vi rykker raskt ut, finner feilen og fikser den.</p></div>
+      <div class="service-card"><div class="service-icon"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="#a16207" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01"/></svg></div><h3>Næring &amp; bygg</h3><p>El-arbeid for butikk, kontor og næringsbygg på Pindsle – fra rehab til nybygg.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Why us -->
+<div class="why-us">
+  <div class="why-inner">
+    <div class="why-img"><img src="https://images.unsplash.com/photo-1565608438257-fac3c27beb36?w=1000&q=80" alt="Elektriker måler"></div>
+    <div class="why-text">
+      <div class="why-label">Hvorfor velge oss</div>
+      <h2 id="hvorfor">Lokale fagfolk du kan stole på</h2>
+      <p class="why-lead">Vi bor og jobber i Sandefjord. Når du ringer oss, snakker du med folk som kjenner området – og som stiller opp.</p>
+      <div class="why-list">
+        <div class="why-item"><div class="why-item-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg></div><div><h4>Lokale og tilgjengelige</h4><p>Kort vei og rask respons i hele Sandefjord-området.</p></div></div>
+        <div class="why-item"><div class="why-item-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div><h4>Fast pris før vi starter</h4><p>Du vet alltid hva jobben koster. Ingen skjulte gebyrer.</p></div></div>
+        <div class="why-item"><div class="why-item-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><div><h4>Ryddig og presist arbeid</h4><p>Vi rydder opp etter oss og leverer dokumentasjon på alt.</p></div></div>
+        <div class="why-item"><div class="why-item-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></div><div><h4>5 års garanti</h4><p>Trygghet lenge etter at jobben er ferdig.</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Pricing -->
+<section id="priser" class="pricing">
+  <div class="section-inner">
+    <div class="pricing-header">
+      <div class="section-label">Priser</div>
+      <h2>Faste priser, ingen overraskelser</h2>
+      <p class="section-lead">Eksempelpriser for vanlige oppdrag. Endelig pris avtaler vi i et uforpliktende tilbud.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card"><div class="price-label light">Befaring &amp; tilbud</div><div class="price-amount dark">Gratis</div><p class="price-desc dark">Vi kommer ut, ser på jobben og gir deg en fast pris. Helt uforpliktende.</p><a href="#kontakt" class="btn-price btn-price-dark">Bestill befaring</a></div>
+      <div class="price-card featured"><div class="price-badge">POPULÆR</div><div class="price-label accent">Elbil-lader montert</div><div class="price-amount light">fra 9.900,-</div><p class="price-desc light">Komplett montering av ladeboks inkludert arbeid, materiell og dokumentasjon.</p><a href="#kontakt" class="btn-price btn-price-accent">Få tilbud på lader</a></div>
+      <div class="price-card"><div class="price-label light">Timepris elektriker</div><div class="price-amount dark">890,-<span class="price-unit">/time</span></div><p class="price-desc dark">For mindre oppdrag og service. Inkl. mva. Ingen skjulte gebyrer.</p><a href="#kontakt" class="btn-price btn-price-dark">Bestill elektriker</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="reviews">
+  <div class="section-inner">
+    <div class="reviews-header">
+      <div class="section-label">Anbefalt av naboer</div>
+      <h2>Det sier kundene i Sandefjord</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card"><div class="review-stars">⭐⭐⭐⭐⭐</div><p class="review-text">«Rask og ryddig montering av elbil-lader. Fikk fast pris på forhånd og de holdt avtalen til punkt og prikke.»</p><div class="review-name">Morten H.</div><div class="review-loc">Pindsle</div></div>
+      <div class="review-card"><div class="review-stars">⭐⭐⭐⭐⭐</div><p class="review-text">«Profesjonelle fra første kontakt. Oppgraderte sikringsskapet vårt på en dag. Veldig fornøyd!»</p><div class="review-name">Anita B.</div><div class="review-loc">Sandefjord sentrum</div></div>
+      <div class="review-card"><div class="review-stars">⭐⭐⭐⭐⭐</div><p class="review-text">«Stilte opp på kort varsel da sikringen røk en fredag kveld. Reddet helga for oss. Anbefales på det varmeste.»</p><div class="review-name">Familie Ødegård</div><div class="review-loc">Gokstad</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="kontakt" class="cta-band">
+  <div class="cta-inner">
+    <h2>Klar for å komme i gang?</h2>
+    <p class="cta-lead">Få et uforpliktende pristilbud i dag. Bruk chatten nederst i hjørnet – så svarer vi på sekunder.</p>
+    <div class="cta-btns">
+      <a href="tel:+4733123456" class="btn-cta-dark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>Ring 33 12 34 56</a>
+      <a href="mailto:post@pindsleelektro.no" class="btn-cta-ghost"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>post@pindsleelektro.no</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div><div class="footer-logo"><div class="footer-logo-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="#0f172a"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div><div class="footer-logo-name">Pindsle Elektro</div></div><p class="footer-desc">Din lokale elektriker på Pindsle. Vi gjør jobben ryddig, presist og til en fast pris.</p></div>
+    <div class="footer-col"><h4>Tjenester</h4><div class="footer-links"><a href="#tjenester">Elbil-lader</a><a href="#tjenester">Sikringsskap</a><a href="#tjenester">Smarthus</a><a href="#tjenester">Service &amp; feilsøking</a></div></div>
+    <div class="footer-col"><h4>Kontakt</h4><div class="footer-links"><span>Pindsleveien 14, 3221 Sandefjord</span><a href="tel:+4733123456">33 12 34 56</a><a href="mailto:post@pindsleelektro.no">post@pindsleelektro.no</a><span>Døgnvakt: 902 00 900</span></div></div>
+    <div class="footer-col"><h4>Åpningstider</h4><div class="footer-links"><span>Man–fre: 07:00–16:00</span><span>Lør–søn: Døgnvakt</span><span class="footer-accent">Akutt? Vi rykker ut hele døgnet.</span></div></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Pindsle Elektro AS · Org.nr 912 345 678 MVA</span><span>Mesterbedrift · DSB-godkjent · Sentral godkjenning</span></div>
+</footer>
+
+<!-- Chat Widget -->
+<div id="cg-widget">
+  <div id="cg-panel" class="hidden">
+    <div class="cg-header">
+      <div class="cg-header-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <div class="cg-header-flex"><div class="cg-header-name">Pindsle Elektro AS</div><div class="cg-header-status"><span class="cg-online"></span>Svarer vanligvis med en gang</div></div>
+      <button class="cg-close" id="cg-close"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="cg-messages" id="cg-messages"></div>
+    <div class="cg-footer">
+      <div class="cg-input-row">
+        <input class="cg-input" id="cg-input" placeholder="Beskriv oppdraget ditt …" type="text">
+        <button class="cg-send" id="cg-send"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+      </div>
+      <div class="cg-powered">Drevet av <span>ChatGenius</span></div>
+    </div>
+  </div>
+  <button id="cg-launcher">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    Chat med oss
+  </button>
+</div>
+
+<script>
+(function(){
+  const GREETING = "Hei, og velkommen til Pindsle Elektro! Trenger du elektriker i Sandefjord? Fortell meg kort hva det gjelder, så hjelper jeg deg videre.";
+  const SYSTEM = "Du er den digitale assistenten til Pindsle Elektro AS, en lokal elektrikerbedrift på Pindsle i Sandefjord. Oppgaven din er å hjelpe kunden raskt med å bestille oppdrag eller få et uforpliktende pristilbud, og samle inn kontaktinfo. Tone: profesjonell, hjelpsom, folkelig og direkte. Følg denne flyten steg for steg: 1) Hils og spør om det gjelder et planlagt prosjekt (f.eks. elbil-lader, nytt sikringsskap, oppussing) eller et mindre serviceoppdrag. 2) Spør kort hva oppdraget går ut på. 3) Spør om navn, telefonnummer og adresse/postnummer i Sandefjord-området. 4) Avslutt med: Takk! En av våre prosjektledere ringer deg innen 2 timer for å avtale tid eller gi et estimat. Ikke gi tekniske råd eller bindende priser. Still ett spørsmål om gangen. Hold svarene korte, maks 1-3 setninger. Svar alltid på norsk.";
+  const FALLBACK = "Takk! Jeg har notert dette. Legg gjerne igjen navn og telefonnummer, så tar en av oss kontakt med deg innen kort tid.";
+
+  const panel = document.getElementById('cg-panel');
+  const launcher = document.getElementById('cg-launcher');
+  const closeBtn = document.getElementById('cg-close');
+  const messages = document.getElementById('cg-messages');
+  const input = document.getElementById('cg-input');
+  const sendBtn = document.getElementById('cg-send');
+
+  let history = [];
+  let loading = false;
+
+  function addMsg(role, text) {
+    history.push({ role, content: text });
+    const div = document.createElement('div');
+    div.className = 'cg-msg ' + (role === 'user' ? 'user' : 'bot');
+    const bubble = document.createElement('div');
+    bubble.className = 'cg-bubble';
+    bubble.textContent = text;
+    div.appendChild(bubble);
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function showTyping() {
+    const div = document.createElement('div');
+    div.className = 'cg-msg bot';
+    div.id = 'cg-typing';
+    div.innerHTML = '<div class="cg-typing"><span class="cg-dot"></span><span class="cg-dot" style="animation-delay:.18s"></span><span class="cg-dot" style="animation-delay:.36s"></span></div>';
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function removeTyping() {
+    const t = document.getElementById('cg-typing');
+    if (t) t.remove();
+  }
+
+  async function send() {
+    const text = input.value.trim();
+    if (!text || loading) return;
+    input.value = '';
+    loading = true;
+    addMsg('user', text);
+    showTyping();
+
+    try {
+      let reply;
+      if (window.claude && typeof window.claude.complete === 'function') {
+        const api = [{ role:'user', content: SYSTEM }, { role:'assistant', content: GREETING }, ...history.slice(1).map(m => ({ role: m.role, content: m.content }))];
+        reply = await window.claude.complete({ messages: api });
+      }
+      if (!reply || !String(reply).trim()) reply = FALLBACK;
+      removeTyping();
+      addMsg('assistant', String(reply).trim());
+    } catch(e) {
+      removeTyping();
+      addMsg('assistant', 'Beklager, jeg fikk en liten teknisk hikke. Prøv igjen, eller ring oss direkte – vi svarer raskt!');
+    }
+    loading = false;
+  }
+
+  function open() { panel.classList.remove('hidden'); launcher.classList.add('hidden'); }
+  function close() { panel.classList.add('hidden'); launcher.classList.remove('hidden'); }
+
+  launcher.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  sendBtn.addEventListener('click', send);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } });
+
+  // Seed greeting
+  addMsg('assistant', GREETING);
+})();
+</script>
+</body>
+</html>

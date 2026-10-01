@@ -1,0 +1,27 @@
+name: DemoSites static validation
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate demo files and privacy labels
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          index = Path("index.html").read_text(encoding="utf-8")
+          demo = Path("demo/index.html").read_text(encoding="utf-8")
+          assert 'href="demo/"' in index
+          assert "KUN SYNTETISKE DEMO-DATA" in demo
+          assert "Ingen ekte ordre eller betaling" in demo
+          assert demo.count("<h1") == 1
+          assert "<title>" in demo and "<meta name=\"description\"" in demo
+          print("DemoSites static validation passed")
+          PY
